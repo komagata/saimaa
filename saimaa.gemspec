@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.files = [
     "bin/saimaa",
      "lib/saimaa.rb",
+     "saimaa.gemspec",
      "test/saimaa_test.rb",
      "test/test_helper.rb"
   ]
