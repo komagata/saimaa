@@ -1,7 +1,40 @@
 = saimaa
 
-Description goes here.
+An easy Continuous Integration Toolkit.
+
+== DESCRIPTION
+
+saimaa command use -c COMMAND and -n NOTIFY_COMMAND parameters.
+saimaa do nothing when COMMAND return status zero.
+but, It print that merged stdout and stderr when COMMAND return status not zero.
+and execute NOTIFY_COMMAND with merged string.
+COMMAND results saved YAML file at ~/.saimaa/saimaa.yml
+
+== INSTALLATION
+
+  $ gem install komagata-saimaa -s http://gems.github.com
+
+== USAGE
+
+  $ saimaa -c "ls /tmp" example
+  $ saimaa -c "ls /tmpp" example
+  --project--
+  example
+  --stdout--
+  
+  --stderr--
+  ls: /tmpp: No such file or directory
+
+for testing.
+
+  $ saimaa -c "rake spec" -n "mail -s '[example] rspec testing' foo@example.com" example
+  $ saimaa -c "script/cucumber features -s -l ja" -n "growlnotify -t 'cucumber testing'" example
+
+using cron
+
+  $ crontab -e
+  0 5 * * * saimaa -c "rake spec" -n "mail -s '[example] rspec testing' foo@example.com" example
 
 == Copyright
 
-Copyright (c) 2009 komagata. See LICENSE for details.
+Copyright (c) 2009 Masaki Komagata. See LICENSE for details.

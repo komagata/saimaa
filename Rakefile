@@ -5,10 +5,13 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "saimaa"
-    gem.summary = %Q{TODO}
+    gem.summary = %Q{An easy Continuous Integration Toolkit.}
+    gem.description = %Q{An easy Continuous Integration Toolkit.}
     gem.email = "komagata@gmail.com"
     gem.homepage = "http://github.com/komagata/saimaa"
-    gem.authors = ["komagata"]
+    gem.authors = ["Masaki Komagata"]
+    gem.files = FileList["lib/*.rb", "bin/*", "test/*.rb", "*.gemspec"].to_a
+    gem.add_dependency('systemu', '>= 1.2.0')
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 
