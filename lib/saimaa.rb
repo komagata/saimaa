@@ -28,7 +28,8 @@ class Saimaa
 
         unless stats.to_i == 0
           if options.key?(:notify)
-            notify(options[:notify], result)
+            stats, stdout, stderr = notify(options[:notify], result)
+            puts stdout
           else
             puts result
           end
@@ -54,7 +55,8 @@ class Saimaa
       end
 
       def notify(cmd, stdin)
-        systemu(cmd, :stdin => stdin)
+        stats, stdout, stderr = systemu(cmd, :stdin => stdin)
+        [stats, stdout, stderr]
       end
       
       def save(project, record)
