@@ -33,6 +33,8 @@ for testing.
 using cron
 
   $ crontab -e
+  PATH=/bin:/usr/bin:/opt/local/bin
+  HOME=/Users/komagata
   0 5 * * * saimaa -c "rake spec" -n "mail -s '[example] rspec testing' foo@example.com" example
 
 == Copyright
